@@ -46,10 +46,10 @@
         .table { width:100%; border-collapse:collapse; }
         .table th, .table td { padding:13px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
         .badge { display:inline-flex; align-items:center; min-height:28px; border-radius:999px; padding:0 10px; background:#eef4f0; font-weight:700; font-size:13px; }
-        .product-card { overflow:hidden; display:flex; flex-direction:column; }
-        .product-img { aspect-ratio:4/3; background:#edf3ef; display:grid; place-items:center; color:#8a9890; font-weight:800; }
-        .product-img img { width:100%; height:100%; object-fit:cover; display:block; }
-        .product-body { padding:16px; display:grid; gap:10px; }
+        .product-card { overflow:hidden; display:flex; flex-direction:column; position:relative; }
+        .product-img { aspect-ratio:4/3; background:#edf3ef; display:grid; place-items:center; color:#8a9890; font-weight:800; overflow:hidden; flex-shrink:0; }
+        .product-img img { width:100%; height:100%; object-fit:cover; display:block; position:relative; z-index:0; }
+        .product-body { padding:16px; display:grid; gap:10px; position:relative; z-index:1; }
         .row { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
         .actions { display:flex; gap:8px; flex-wrap:wrap; }
         .footer { padding:28px 0; color:var(--muted); }
@@ -84,7 +84,7 @@
                     <a class="btn btn-line" href="{{ route('orders.index') }}">Commandes</a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button class="btn btn-soft" type="submit">Deconnexion</button>
+                        <button class="btn btn-soft" type="submit">Déconnexion</button>
                     </form>
                 @else
                     <a class="btn btn-line" href="{{ route('login') }}">Connexion</a>
