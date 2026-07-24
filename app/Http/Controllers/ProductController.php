@@ -107,7 +107,7 @@ class ProductController extends Controller
             'description' => ['nullable', 'string', 'max:1000'],
             'price' => ['required', 'integer', 'min:0'],
             'stock' => ['nullable', 'integer', 'min:0'],
-            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,gif', 'max:10240'],
             'is_active' => ['nullable', 'boolean'],
         ]) + ['is_active' => $request->boolean('is_active')];
     }
