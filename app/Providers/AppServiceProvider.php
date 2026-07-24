@@ -16,6 +16,10 @@ class AppServiceProvider extends ServiceProvider
     {
         if ($this->app->environment('production')) {
             URL::forceScheme('https');
+
+            if (config('app.url') === 'http://localhost' && request()->isSecure()) {
+                config(['app.url' => 'https://' . request()->getHost()]);
+            }
         }
     }
 }
