@@ -96,8 +96,8 @@
             <div class="grid grid-cols-2 gap-3">
                 @forelse ($products as $product)
                     <article class="rounded-2xl overflow-hidden flex flex-col" style="background:#1A1A2E;">
-                        {{-- Image --}}
-                        <div class="relative aspect-square overflow-hidden" style="background:#252540;">
+                        {{-- Image — cliquable vers détail --}}
+                        <a href="{{ route('shops.public.product', [$shop, $product]) }}" class="block relative aspect-square overflow-hidden" style="background:#252540;">
                             @if($product->image_path)
                                 <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" class="w-full h-full object-cover" style="width:100%;height:100%;object-fit:cover;display:block;">
                             @else
@@ -109,18 +109,20 @@
                             @if($product->stock <= 0)
                                 <span class="absolute top-2 left-2 text-[10px] font-semibold px-2 py-0.5 rounded-full" style="background:rgba(239,68,68,0.15); color:#f87171; border:1px solid rgba(239,68,68,0.2);">Rupture</span>
                             @endif
-                        </div>
+                        </a>
 
                         {{-- Body --}}
                         <div class="p-3 flex flex-col flex-1">
-                            <h3 class="text-[13px] font-semibold text-white leading-snug" style="display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;">{{ $product->name }}</h3>
+                            <a href="{{ route('shops.public.product', [$shop, $product]) }}" class="block">
+                                <h3 class="text-[13px] font-semibold text-white leading-snug" style="display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;">{{ $product->name }}</h3>
+                            </a>
 
                             <p class="mt-1.5 text-sm font-bold" style="color:#A78BFA;">{{ number_format($product->price, 0, ',', ' ') }} <span class="text-[10px] font-medium" style="color:rgba(167,139,250,0.5);">FCFA</span></p>
 
                             <div class="mt-auto pt-3">
                                 @if($product->stock > 0)
                                     <button
-                                        x-on:click="addItem({{ json_encode(['id' => $product->id, 'name' => $product->name, 'price' => $product->price, 'stock' => $product->stock]) }})"
+                                        x-on:click.stop="addItem({{ json_encode(['id' => $product->id, 'name' => $product->name, 'price' => $product->price, 'stock' => $product->stock]) }})"
                                         class="w-full py-2.5 rounded-xl text-white text-sm font-semibold transition-colors duration-150 cursor-pointer" style="background:#6C5CE7;">
                                         Réserver
                                     </button>
