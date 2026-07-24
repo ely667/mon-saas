@@ -39,5 +39,5 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/b/{shop:slug}', [PublicShopController::class, 'show'])->name('shops.public.show');
-Route::get('/b/{shop:slug}/{product:slug}', [PublicShopController::class, 'product'])->name('shops.public.product');
+Route::get('/b/{shop:slug}/{product}', [PublicShopController::class, 'product'])->name('shops.public.product');
 Route::post('/b/{shop:slug}/order', [PublicOrderController::class, 'store'])->name('shops.public.order');

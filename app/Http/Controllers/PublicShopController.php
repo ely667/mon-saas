@@ -21,10 +21,14 @@ class PublicShopController extends Controller
         ]);
     }
 
-    public function product(Shop $shop, Product $product): View
+    public function product(Shop $shop, string $productSlug): View
     {
         abort_unless($shop->is_active && $shop->is_public, 404);
-        abort_unless($product->shop_id === $shop->id && $product->is_active, 404);
+
+        $product = $shop->products()
+            ->where('is_active', true)
+            ->where('slug', $productSlug)
+            ->firstOrFail();
 
         return view('public.product', [
             'shop' => $shop,
