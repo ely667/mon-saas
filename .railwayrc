@@ -1,0 +1,6 @@
+[build]
+nixpacks-version = "latest"
+
+[[build.providers]]
+name = "php"
+php-version = "8.4"
