@@ -49,7 +49,7 @@
         {{-- HERO --}}
         {{-- ============================================= --}}
         <section class="pt-13" style="background:linear-gradient(180deg, #1a1035 0%, #12101f 60%, #0F0F17 100%);">
-            <div class="flex flex-col items-center text-center px-6 pt-12 pb-10">
+            <div class="flex flex-col items-center text-center px-4 sm:px-6 pt-8 sm:pt-12 pb-8 sm:pb-10">
 
                 {{-- Logo rond --}}
                 <div class="w-24 h-24 rounded-full flex items-center justify-center text-4xl font-extrabold text-white mb-5 shadow-lg" style="background:hsl({{ $hue }},60%,55%); box-shadow: 0 8px 32px hsl({{ $hue }},60%,55%,0.35);">

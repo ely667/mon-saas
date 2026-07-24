@@ -8,7 +8,7 @@
             <a class="btn btn-primary" href="{{ route('products.create') }}">Ajouter produit</a>
         </div>
 
-        <div class="grid grid-3 section">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 section">
             @forelse ($products as $product)
                 <article class="card product-card">
                     <div class="product-img">

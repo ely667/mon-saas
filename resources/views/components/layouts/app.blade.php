@@ -59,6 +59,14 @@
             .nav-inner { align-items:flex-start; padding:14px 0; flex-direction:column; }
             .nav-links { justify-content:flex-start; }
             .table-wrap { overflow-x:auto; }
+            .section { padding:20px 0; }
+            h1 { font-size:clamp(28px, 6vw, 50px); }
+            h2 { font-size:22px; }
+            .product-body { padding:12px; }
+            .product-body h3 { font-size:14px; }
+            .product-body strong { font-size:15px; }
+            .actions { gap:6px; }
+            .actions .btn { min-height:36px; padding:0 10px; font-size:13px; }
         }
     </style>
 </head>
